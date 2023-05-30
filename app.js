@@ -1,6 +1,6 @@
 var cars = {
     honda: {
-        cars: {
+        Cars: {
             civicSedan: {
                 name: "Honda Civic Sedan",
                 price: "$25,350",
@@ -20,7 +20,7 @@ var cars = {
                 img: "Images/Honda/cars/Honda_Civic-Si-Sedan.avif"
             }
         },
-        electrified: {
+        Electrified: {
             hondaCivicAccordHybrid: {
                 name: "Honda Civic Accord Hybrid",
                 price: "$26,670",
@@ -34,7 +34,7 @@ var cars = {
                 img: "Images/Honda/electrified/Honda_CR-V-Hybrid.png"
             },
         },
-        hatchback: {
+        Hatchback: {
             hondaCivicHatchback: {
                 name: "Honda Civic Hatchback",
                 price: "$30,650",
@@ -48,7 +48,7 @@ var cars = {
                 img: "Images/Honda/electrified/Honda_CR-V-Hybrid.png"
             }
         },
-        suv: {
+        SUV: {
             hondaCRV: {
                 name: "Honda CR-V",
                 price: "$28,410",
@@ -74,7 +74,7 @@ var cars = {
                 img: "Images/Honda/suv/Honda_Pilot.png"
             }
         },
-        miniVans: {
+        Minivans: {
             hondaCRV: {
                 name: "Honda CR-V",
                 price: "$28,410",
@@ -96,7 +96,7 @@ var cars = {
         },
     },
     toyota: {
-        cars: {
+        Cars: {
             toyotaCamry: {
                 name: "Toyota Camry",
                 price: "$31,190",
@@ -116,7 +116,7 @@ var cars = {
                 img: "Images/Toyota/cars/Toyota_Yaris.png"
             }
         },
-        suv: {
+        SUV: {
             toyotaCorollaCross: {
                 name: "Toyota Corolla Cross",
                 price: " $40,316",
@@ -169,7 +169,7 @@ var cars = {
         }
     },
     hyundai: {
-        cars: {
+        Cars: {
             hundayiElantra: {
                 name: "Hundayi Elantra",
                 price: "$20,500",
@@ -195,7 +195,7 @@ var cars = {
                 img: "Images/Hyundai/cars/Hundayi_Veloster.png",
             }
         },
-        eco: {
+        Eco: {
             hundayiElantraHybrid: {
                 name: "Hyundai Elantra Hybrid",
                 price: "$24,400",
@@ -227,7 +227,7 @@ var cars = {
                 img: "Images/Hyundai/eco/Hundayi_Nexo.png",
             }
         },
-        suv: {
+        SUV: {
             hundayiCreta: {
                 name: "Hyundai Creta",
                 price: "$6,651",
@@ -257,13 +257,6 @@ var cars = {
 }
 
 var allCars = document.getElementById("all-cars");
-// var toyota = document.getElementById("toyota-nav-link");
-// var honda = document.getElementById("honda-nav-link");
-// var toyota = document.getElementById("hyundai-nav-link");
-// var hondaCarsDiv = document.getElementById("honda-cars-div");
-// var toyotaCarsDiv = document.getElementById("toyota-cars-div");
-// var hyundaiCarsDiv = document.getElementById("hyundai-cars-div");
-
 
 function allCarsShow() {
     allCars.innerHTML = "";
@@ -299,31 +292,49 @@ function allCarsShow() {
     }
 }
 
-// allCarsShow()
+allCarsShow()
 
-function hondaCars() {
+function brandCars(brand) {
     allCars.innerHTML = "";
-    allCars.innerHTML = `
-        <div class="heading-div" id="heading-div2">
-            <img src="Images/Honda/honda-logo.jpg" alt="" class="honda-heading-img">
-        </div>
-    `;
-    for (var key in cars.honda) {
-        for (var type in cars.honda[key]) {
+    if(brand == "honda"){
+        allCars.innerHTML = `
+            <div class="heading-div" id="heading-div2">
+                <img src="Images/Honda/honda-logo.jpg" alt="" class="honda-heading-img">
+            </div>
+        `;
+    }
+
+    else if(brand == "toyota"){
+        allCars.innerHTML = `
+            <div class="heading-div" id="heading-div2">
+                <img src="Images/Toyota/Toyota-Logo.png" alt="" class="hyundai-heading-img">
+            </div>
+        `;
+    }
+
+    else if(brand == "hyundai"){
+        allCars.innerHTML = `
+            <div class="heading-div" id="heading-div2">
+                <img src="Images/Hyundai/Hyundai-Logo.png" alt="" class="hyundai-heading-img">
+            </div>
+        `;
+    }
+    for (var key in cars[brand]) {
+        for (var type in cars[brand][key]) {
             allCars.innerHTML += `
                 <div class="car-cards">
                     <div class="car-img">
-                        <img src="${cars.honda[key][type].img}" alt="" class="car-image">
+                        <img src="${cars[brand][key][type].img}" alt="" class="car-image">
                     </div>
                     <div class="car-txt">
                         <a href="#" class="car-name">
-                            ${cars.honda[key][type].name}
+                            ${cars[brand][key][type].name}
                         </a>
                         <span class="car-price">
-                            USD ${cars.honda[key][type].price}
+                            USD ${cars[brand][key][type].price}
                         </span>
                         <span class="car-location">
-                            ${cars.honda[key][type].location}
+                            ${cars[brand][key][type].location}
                         </span>
                     </div>
                 </div>
@@ -332,8 +343,13 @@ function hondaCars() {
     }
 }
 
-function suv(brand, type){
+function carType(brand, type){
     allCars.innerHTML = "";
+    allCars.innerHTML = `
+        <div class="heading-div" id="heading-div2">
+            ${type}
+        </div>
+    `;
     for(var key in cars[brand][type]){
         allCars.innerHTML += `
                 <div class="car-cards">
@@ -353,73 +369,5 @@ function suv(brand, type){
                     </div>
                 </div>
                 `
-    }
-}
-suv("toyota", "cars")
-
-// var k = honda
-// console.log(cars[k])
-
-
-function toyotaCars() {
-    allCars.innerHTML = "";
-    allCars.innerHTML = `
-        <div class="heading-div" id="heading-div2">
-            <img src="Images/Toyota/Toyota-Logo.png" alt="" class="hyundai-heading-img">
-        </div>
-    `;
-    for (var key in cars.toyota) {
-        for (var type in cars.toyota[key]) {
-            allCars.innerHTML += `
-                <div class="car-cards">
-                    <div class="car-img">
-                        <img src="${cars.toyota[key][type].img}" alt="" class="car-image">
-                    </div>
-                    <div class="car-txt">
-                        <a href="#" class="car-name">
-                            ${cars.toyota[key][type].name}
-                        </a>
-                        <span class="car-price">
-                            USD ${cars.toyota[key][type].price}
-                        </span>
-                        <span class="car-location">
-                            ${cars.toyota[key][type].location}
-                        </span>
-                    </div>
-                </div>
-                `
-        }
-    }
-}
-
-
-function hyundaiCars() {
-    allCars.innerHTML = "";
-    allCars.innerHTML = `
-        <div class="heading-div" id="heading-div2">
-            <img src="Images/Hyundai/Hyundai-Logo.png" alt="" class="hyundai-heading-img">
-        </div>
-    `;
-    for (var key in cars.hyundai) {
-        for (var type in cars.hyundai[key]) {
-            allCars.innerHTML += `
-                <div class="car-cards">
-                    <div class="car-img">
-                        <img src="${cars.hyundai[key][type].img}" alt="" class="car-image">
-                    </div>
-                    <div class="car-txt">
-                        <a href="#" class="car-name">
-                            ${cars.hyundai[key][type].name}
-                        </a>
-                        <span class="car-price">
-                            USD ${cars.hyundai[key][type].price}
-                        </span>
-                        <span class="car-location">
-                            ${cars.hyundai[key][type].location}
-                        </span>
-                    </div>
-                </div>
-                `
-        }
     }
 }

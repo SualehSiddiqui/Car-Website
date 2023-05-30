@@ -1,16 +1,16 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: 'Josefin Sans', sans-serif;
 }
 
-.header{
+.header {
     background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     font-family: inherit;
 }
 
-.body{
+.body {
     width: 100%;
     height: auto;
     background-color: #f2f3f3;
@@ -18,19 +18,22 @@
     min-height: 100vh;
 }
 
-.pak-wheels-logo{
+.pak-wheels-logo {
     width: 150px;
 }
 
-.search-bar{
+.search-bar {
     width: 250px;
 }
 
-.nav-link:hover{
+.nav-link:hover {
     color: red;
 }
 
-.all-cars, .honda-cars, .toyota-cars, .hyundai-cars{
+.all-cars,
+.honda-cars,
+.toyota-cars,
+.hyundai-cars {
     width: 100%;
     height: auto;
     display: flex;
@@ -38,25 +41,26 @@
     justify-content: space-evenly;
 }
 
-.honda-cars, .toyota-cars, .hyundai-cars{
+.honda-cars,
+.toyota-cars,
+.hyundai-cars {
     display: none;
 }
 
-.car-cards{
+.car-cards {
     width: 200px;
     height: 220px;
     background-color: #fff;
     margin: 10px 0px 10px 0px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; */
     border-radius: 10px;
 }
 
-.car-cards:hover{
+.car-cards:hover {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.car-img{
+.car-img {
     width: 100%;
     height: 55%;
     background-color: #fff;
@@ -67,11 +71,11 @@
     align-items: center;
 }
 
-.car-img:hover{
+.car-img:hover {
     cursor: pointer;
 }
 
-.car-txt{
+.car-txt {
     width: 100%;
     height: 45%;
     background-color: #fff;
@@ -86,44 +90,47 @@
 
 }
 
-.car-image{
+.car-image {
     width: 100%;
 }
 
-.car-name{
+.car-name {
     font-size: 19px;
     color: rgb(20, 70, 145);
     text-decoration: none;
 }
 
-.car-name:hover{
+.car-name:hover {
     color: rgb(62, 98, 151);
 }
 
-.car-price{
+.car-price {
     font-size: 15px;
     color: green;
 }
 
-.car-location{
+.car-location {
     color: gray;
     font-size: 13px;
 }
 
-.heading-div{
+.heading-div {
+    font-family: inherit;
     width: 100%;
     text-align: center;
+    font-size: 35px;
+    color: rgb(20, 70, 145);
 }
 
-.honda-heading-img{
+.honda-heading-img {
     height: 80px;
 }
 
-.hyundai-heading-img{
+.hyundai-heading-img {
     width: 180px;
 }
 
-.car-type{
+.car-type {
     padding: 10px;
     width: 100%;
     font-family: inherit;
@@ -132,8 +139,9 @@
 }
 
 @media only screen and (max-width: 250px) {
+
     .hyundai-heading-img,
-    .pak-wheels-logo{
+    .pak-wheels-logo {
         width: 100px;
     }
-  }
+}
